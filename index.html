@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>滑动</title>
+   <style>
+       .bady{
+           background-image:url("bg1.png");
+           background-position:center center;
+           background-repeat: no-repeat;
+           background-attachment:fixed;
+           background-size:cover;
+           
+          }
+   
+   
+      input{
+      width:80vw;
+    }
+     </style>
+  </head>
+   <body class="bady">
+  <body>
+  <center>
+	<h1>滑到右边👉</h1>
+  </center>
+  <center>
+   <input id="hua" type="range" max="100" value="0"/>
+   </center>
+      <script>
+        hua.oninput = function (){
+           if(hua.value==100) location.href="index1.html"
+       }
+      </script>
+  </body>
+</html>
