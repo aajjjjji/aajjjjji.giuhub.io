@@ -1,156 +1,156 @@
-<超文本标记语言超文本标记语言
-<头><头>
-<元 字符集="utf-8"姓名="视口"内容="宽度=设备宽度，初始比例=1，最大比例=1，用户可缩放=no"><元 字符集="utf-8" 姓名="视口" 内容="宽度=设备宽度，初始比例=1，最大比例=1，用户可缩放=否"> 
-<标题>我是一个普通的网站啊看我干嘛</标题><标题>我是一个普通的网站啊看我干嘛</标题> 
-<风格><风格>
-.bady{
-背景位置：中心中心；
-背景重复：无重复；
-背景附着：固定；
-背景尺寸：封面；
-过渡：背景-图像1s轻松；
-}
+<html>
+<head> 
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+  <title>我是一个普通的网站啊看我干嘛</title> 
+  <style>
+     .bady{
+           background-position:center center;
+           background-repeat: no-repeat;
+           background-attachment:fixed;
+           background-size:cover;
+           transition: background-image 1s ease;
+          }
         
-.xz{
-上边距：60px；
-边框样式：实心；
-边框宽度：2px；
-边界半径：5px；
-背景色：#add8f6；
-宽度：150px；
-高度：20；
-}
-.A{
-字体大小:50；
-颜色：#ffc0cb；
-文字修饰：无；
-}
+     .xz{
+       margin-top:60px;
+       border-style:solid;
+       border-width:2px;
+       border-radius:5px;
+       background-color: #add8f6;
+       width:150px;
+       height:20;
+       }
+      .a{
+         font-size:50;
+         color:#ffc0cb;
+         text-decoration:none;
+        }
      
-/* 背景切换按钮样式 - 底部居中 */
-.bg-开关-容器{
-位置：固定；
-底部：20px；
-左：0；
-宽度：100%；
-显示：柔性；
-对齐-内容：居中；
-Z指数：1000；
+     /* 背景切换按钮样式 - 底部居中 */
+     .bg-switch-container {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 1000;
      }
      
-.bg-switch-btn{
-背景：rgba(255，255，255，0.2)；
-背景滤镜：模糊(10 PX)；
-边框：2px实体rgba(255，255，255，0.3)；
-颜色：白色；
-填料：12px25px；
-边界半径：50px；
-光标：指针；
-字体大小：16px；
-font-weight:600；
-过渡：所有0.3s轻松；
-盒阴影：04px15pxrgba(0，0，0，0.2)；
-显示：柔性；
-对齐项：居中；
-间隙：10px；
+     .bg-switch-btn {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
      }
      
-.bg-switch-btn：悬停{
-背景：rgba(255，255，255，0.3)；
-变换：translateY(-3px)；
-箱阴影：06px20pxrgba(0，0，0，0.3)；
+     .bg-switch-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
      }
      
-.bg-switch-btn：活动{
-变换：translateY(0)；
+     .bg-switch-btn:active {
+        transform: translateY(0);
      }
      
-.bg-switch-btn svg{
-宽度：18px；
-高度：18px；
-填充：白色；
+     .bg-switch-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: white;
      }
       
-  </风格> 
-  <脚本 src="js/jq.js"></脚本> 
-</头>
-<身体 身份标识="v1" 班级="bady" 风格="背景图象：URL('bg.png')"> 
-<! -- 背景切换按钮容器 -->
-  <div 班级="bg-开关-容器">
-    <按钮 班级="bg-开关-btn" 身份标识="bg-开关-btn">
-      <SVG xmlns="http://www.w3.org/2000/svg" 检视方块="0 0 16 16">
-        <路径 d="M83A550104.5462.914.5500.1908-.417A6601182v1z"/>
-        <路径 d="M8 4.466V.534a.25.25001.41-.192l2.36 1.966c.12.1.12.2840.384L8.414.658A.25.2500184.466z"/>
-      </SVG>
-切换背景
-    </按钮>
+  </style> 
+  <script src="js/jq.js"></script> 
+</head> 
+<body id="v1" class="bady" style="background-image: url('bg.png')"> 
+  <!-- 背景切换按钮容器 -->
+  <div class="bg-switch-container">
+    <button class="bg-switch-btn" id="bg-switch-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+      </svg>
+      切换背景
+    </button>
   </div>
   
-  <中心 身份标识="v2"> 
-   <H1 身份标识="v3">AWC更新检测</H1> 
-  </中心> 
-  <中心 身份标识="v4"> 
-   <div 身份标识="v5" 班级="xz"> 
-    <一个 身份标识="v6" href="https://wwzp.lanzoum.com/iSMjD39s1wih">点击这里下载AWC</一个> 
+  <center id="v2"> 
+   <h1 id="v3">AWC更新检测</h1> 
+  </center> 
+  <center id="v4"> 
+   <div id="v5" class="xz"> 
+    <a id="v6" href="https://wwzp.lanzoum.com/iSMjD39s1wih">点击这里下载AWC</a> 
    </div> 
-  </中心> 
-  <中心>
-  <div 班级="xz">
-   <一个 href="https://www.ilanzou.com/s/wqTzgfc5">不可使用的辅助</一个>
+  </center> 
+  <center>
+  <div class="xz">
+   <a href="https://www.ilanzou.com/s/wqTzgfc5">不可使用的辅助</a>
    </div>
-   </中心>
-  <中心 身份标识="v7"> 
-   <div 身份标识="v8" 班级="xz"> 
-    <一个 身份标识="v9" href="https://www.ilanzou.com/s/2i8z8WvC">点击这里是VAC计时</一个> 
+   </center>
+  <center id="v7"> 
+   <div id="v8" class="xz"> 
+    <a id="v9" href="https://www.ilanzou.com/s/2i8z8WvC">点击这里是VAC计时</a> 
    </div> 
-  </中心> 
-  <中心 身份标识="v10"> 
-   <div 身份标识="v11" 班级="xz"> 
-    <一个 身份标识="v12" href="https://qm.qq.com/q/oEnoMoGcus">QQ联系方式</一个> 
+  </center> 
+  <center id="v10"> 
+   <div id="v11" class="xz"> 
+    <a id="v12" href="https://qm.qq.com/q/oEnoMoGcus">QQ联系方式</a> 
    </div> 
-   </中心>
-    <中心>
-     <H1>(已更新)</H1>
-    </中心>
-    <中心>
-     <H2>caolima~(∠·ω<)∼★</H2>
-     </中心>
-     <中心>
-     <H2>已可以使用</H2>
-     </中心>
+   </center>
+    <center>
+     <h1>(已更新)</h1>
+    </center>
+    <center>
+     <h2>caolima～(∠・ω< )⌒★</h2>
+     </center>
+     <center>
+     <h2>已可以使用</h2>
+     </center>
   
-  <标题 身份标识="v13">实时日期和时间显示</标题> 
-  <div 身份标识="v14"> 
-   <中心 身份标识="v15"> 
-    <脚本 src="js/jq.js"></脚本> 
-    <H3 身份标识="v16">实时日期和时间显示</H3> 
-    <div 身份标识="日期时间">
-2025-08-31 01:06:25
+  <title id="v13">实时日期和时间显示</title> 
+  <div id="v14"> 
+   <center id="v15"> 
+    <script src="js/jq.js"></script> 
+    <h3 id="v16">实时日期和时间显示</h3> 
+    <div id="datetime">
+     2025-08-31 01:06:25
     </div> 
-    <脚本>
-    功能 displayDateTime() {
-        var 现在=新的 日期();
-var年=现在.getFullYear()；
-var月=现在.getMonth()+1；
-var一天=现在.GETDATE()；
-var小时=现在.getHours()；
-var分钟=现在.getMinutes()；
-var第二=现在.getSeconds()；
+    <script>
+    function displayDateTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
 
-// 格式化日期和时间
-月=月<10 ? '0'+月 : 月;
-一天=一天<10 ? '0'+一天 : 一天;
-小时=小时<10 ? '0'+小时 : 小时;
-分钟=分钟<10 ? '0'+分钟 : 分钟;
-第二=第二<10 ? '0'+第二 : 第二;
+        // 格式化日期和时间
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+        hour = hour < 10 ? '0' + hour : hour;
+        minute = minute < 10 ? '0' + minute : minute;
+        second = second < 10 ? '0' + second : second;
 
-// 显示在网页上
-文件.getElementById('日期时间').innerHTML=年+'-'+月+'-'+一天+”+小时+'：'+分钟+'：'+第二；
+        // 显示在网页上
+        document.getElementById('datetime').innerHTML = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
     }
 
-// 每秒更新一次
-setInterval(displayDateTime，1000)；
-</脚本>
-   </中心> 
+    // 每秒更新一次
+    setInterval(displayDateTime, 1000);
+</script> 
+   </center> 
   </div>  
   
   <!-- 音乐代码 -->
@@ -161,69 +161,69 @@ setInterval(displayDateTime，1000)；
     <div style="position: fixed; top: 50%; left: 50%; width: 320px; background: #FFF; transform: translate(-50%, -50%); border-radius: 40px; padding: 5px 4px;">
         <button style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer;" onclick="closePopup();">×</button>
         <h3 style="font-weight: bold; text-align: center; font-size: 30px;">网站通知</h3>
-        <div 风格="字体大小：16px；上边距：26PX；线高：30px；颜色：#999；"字体大小
-公告内容：本网站只负责帮你获取AWC，VAC了概不负责，QQ群在下方⬇<溴><溴>
-            <p><一个 href="https://qm.qq.com/q/UdrJI6abOC" 目标="_空白" 风格="显示：块；文本对齐：中心；字体粗细：大胆的；字体大小：19PX；线高：60px；边缘：0自动；上边距：45PX；边界半径：32px；宽度：80%；" 显示=块 文本对齐=中心>QQ群跳转字体粗细一个></p>
-</div>
-</div>
-</div>
+        <div style="font-size: 16px; margin-top: 26px; line-height: 30px; color: #999;">
+            公告内容：本网站只负责帮你获取AWC，VAC了概不负责，QQ群在下方⬇<br><br>
+            <p><a href="https://qm.qq.com/q/UdrJI6abOC" target="_blank" style="display: block; text-align: center; font-weight: bold; font-size: 19px; line-height: 60px; margin: 0 auto; margin-top: 45px; border-radius: 32px; width: 80%;" onclick="redirectUrlToActive();" rel='nofollow'>QQ群跳转</a></p>
+        </div>
+    </div>
+  </div>
   
-  <脚本>
-功能closePopup(){
-文件.querySelector('.web_notice')。风格.显示='无'；
+  <script>
+    function closePopup() {
+        document.querySelector('.web_notice').style.display = 'none';
     }
     
-// 背景切换功能
-文件.addEventListener('DOMContentLoaded'，功能(){
-Const身体=文件.getElementById('v1')；
-Const switchBtn=文件.getElementById('bg-switch-btn')；
+    // 背景切换功能
+    document.addEventListener('DOMContentLoaded', function() {
+        const body = document.getElementById('v1');
+        const switchBtn = document.getElementById('bg-switch-btn');
         
-// 背景图片列表
-Const背景=[
-'bg.png'，
-'bg11.png'，
-'bg1.png'，
-'bg2.png'，
-'bg3.png'，
-'bg4.png'，
-'bg5.png'，
-'bg6.png'，
-'bg7.png'，
-'bg8.png'，
-'bg9.png'，
-'bg10.png'，
+        // 背景图片列表
+        const backgrounds = [
+            'bg.png',
+            'img/bg.png',
+            'bg1.png',
+            'bg2.png',
+            'bg3.png',
+            'bg4.png',
+            'bg5.png',
+            'bg6.png',
+            'bg7.png',
+            'bg8.png',
+            'bg9.png',
+            'bg10.png',
         ];
         
-让currentIndex=0；
+        let currentIndex = 0;
         
-// 预加载图片
-功能preloadImages(){
-背景.foreach(URL=>{
-常数IMG=新的图像()；
-IMG.src=URL；
+        // 预加载图片
+        function preloadImages() {
+            backgrounds.forEach(url => {
+                const img = new Image();
+                img.src = url;
             });
         }
         
-// 切换背景
-功能switchBackground(){
-currentIndex=(currentIndex+1)%背景.长度；
-身体.风格.BackgroundImage='URL('${背景[currentIndex]}')'；
+        // 切换背景
+        function switchBackground() {
+            currentIndex = (currentIndex + 1) % backgrounds.length;
+            body.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
         }
         
-// 预加载图片
-预加载图像()；
+        // 预加载图片
+        preloadImages();
         
-// 添加按钮点击事件
-switchBtn.addEventListener('click'，switchBackground)；
+        // 添加按钮点击事件
+        switchBtn.addEventListener('click', switchBackground);
         
-// 添加键盘支持（空格键切换）
-document.addEventListener('keydown'，函数(e){
-if(e.code==='Space'){
-e.preventDefault()；
-switchBackground()；
+        // 添加键盘支持（空格键切换）
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                switchBackground();
             }
         });
     });
-  </脚本>
-</身体>
-</超文本标记语言>
+  </script>
+</body>
+</html>
