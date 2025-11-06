@@ -11,6 +11,103 @@
            transition: background-image 1s ease;
           }
         
+        .wz{
+          margin-top: 20px;
+          gap: 60px;
+           }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px; /* an n间距 */
+            margin-top: 105px;
+        }
+        
+        /* 按钮样式 */
+        .oval-btn {
+            position: relative;
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+        }
+        
+        .oval-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .oval-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .oval-btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .oval-btn:active {
+            transform: translateY(1px);
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 按钮颜色变体 */
+        .oval-primary {
+            background: rgba(52, 152, 219, 0.2);
+            border: 1px solid rgba(52, 152, 219, 0.4);
+        }
+        
+        .oval-success {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid rgba(46, 204, 113, 0.4);
+        }
+        
+        .oval-warning {
+            background: rgba(241, 196, 15, 0.2);
+            border: 1px solid rgba(241, 196, 15, 0.4);
+        }
+        
      .xz{
        margin-top:60px;
        border-style:solid;
@@ -85,39 +182,34 @@
     </button>
   </div>
   
-  <center id="v2"> 
+  <center> <div class="wz">
    <h1 id="v3">AWC更新检测</h1> 
   </center> 
-  <center id="v4"> 
-   <div id="v5" class="xz"> 
-    <a id="v6" href="https://wwzp.lanzoum.com/iSMjD39s1wih">点击这里下载AWC</a> 
-   </div> 
-  </center> 
-  <center>
-  <div class="xz">
-   <a href="https://www.ilanzou.com/s/wqTzgfc5">不可使用的辅助</a>
-   </div>
-   </center>
-  <center id="v7"> 
-   <div id="v8" class="xz"> 
-    <a id="v9" href="https://www.ilanzou.com/s/2i8z8WvC">点击这里是VAC计时</a> 
-   </div> 
-  </center> 
-  <center id="v10"> 
-   <div id="v11" class="xz"> 
-    <a id="v12" href="https://qm.qq.com/q/oEnoMoGcus">QQ联系方式</a> 
-   </div> 
-   </center>
-    <center>
+   <div class="container">
+        
+            <div class="button-container">
+                <a href="http://net.xrvi.top/parser?url=https://www.ilanzou.com/s/Dy4NhTNe" class="oval-btn oval-primary" target="_blank">
+                    下载AWC
+                </a>
+                <a href="http://net.xrvi.top/parser?url=https://www.ilanzou.com/s/DJrNh3Ac" class="oval-btn oval-success" target="_blank">
+                    下载VAC倒计时
+                </a>
+                <a href="https://qm.qq.com/q/oEnoMoGcus" class="oval-btn oval-warning" target="_blank">
+                    网站作者QQ
+                </a>
+            </div>
+            
+   
+    <center><div class="wz">
      <h1>(已更新)</h1>
-    </center>
-    <center>
+    </center></div>
+    <center><div class="wz">
      <h2>caolima～(∠・ω< )⌒★</h2>
      </center>
-     <center>
+     <center><div class="wz">
      <h2>已可以使用</h2>
      </center>
-  
+  <div class="wz">
   <title id="v13">实时日期和时间显示</title> 
   <div id="v14"> 
    <center id="v15"> 
