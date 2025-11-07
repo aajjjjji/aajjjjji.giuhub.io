@@ -2,9 +2,16 @@
 <html>
   <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>滑动</title>
+	<title>人机验证</title>
    <style>
-       .bady{
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+          .bady{
            background-image:url("bg1.png");
            background-position:center center;
            background-repeat: no-repeat;
@@ -12,25 +19,268 @@
            background-size:cover;
            
           }
-   
-   
-      input{
-      width:80vw;
-    }
-     </style>
-  </head>
-   <body class="bady">
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #555;
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 18px;
+        }
+        
+        .slider-container {
+            position: relative;
+            margin: 40px 0;
+            padding: 0 10px;
+        }
+        
+        .slider-track {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slider-progress {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            position: absolute;
+            top: -20px;
+            left: 0;
+            z-index: 2;
+            cursor: pointer;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid #6a11cb;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: grab;
+            transition: all 0.2s;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        input[type="range"]::-webkit-slider-thumb:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
+        
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .message {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .error {
+            opacity: 0.5;
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+        
+        .hint {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .hint svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .icon {
+            margin-bottom: 20px;
+        }
+        
+        .icon svg {
+            width: 80px;
+            height: 80px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .shake {
+            animation: shake 0.4s ease;
+        }
+    </style>
+</head>
+<body class="bady">
   <body>
-  <center>
-	<h1>滑到右边👉</h1>
-  </center>
-  <center>
-   <input id="hua" type="range" max="100" value="0"/>
-   </center>
-      <script>
-        hua.oninput = function (){
-           if(hua.value==100) location.href="index1.html"
-       }
-      </script>
+    <div class="container">
+        <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z" fill="#6a11cb"/>
+            </svg>
+        </div>
+        
+        <h1>人机验证</h1>
+        <h2>请确认您是否年满13岁及以上</h2>
+        
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slider-progress" id="progress"></div>
+            </div>
+            <input id="hua" type="range" max="100" value="0"/>
+            <div class="slider-labels">
+                <span>你是人机吗</span>
+                <span>滑到这里</span>
+            </div>
+        </div>
+        
+        <div class="message success" id="successMessage">
+            验证成功！正在跳转...
+        </div>
+        
+        <div class="message error" id="errorMessage">
+            内有13+背景请确认你是否到13+及以上
+        </div>
+        
+        <div class="hint">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="#666"/>
+            </svg>
+            提示：请将滑块完全拖动到最右侧
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('hua');
+        const progress = document.getElementById('progress');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        let isCompleted = false;
+        
+        // 初始化显示错误提示
+        errorMessage.style.display = 'block';
+        
+        // 滑块输入事件
+        slider.oninput = function() {
+            // 更新进度条
+            progress.style.width = this.value + '%';
+            
+            // 如果滑块值达到100，验证成功
+            if(this.value == 100 && !isCompleted) {
+                isCompleted = true;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                // 延迟跳转，让用户看到成功消息
+                setTimeout(function() {
+                    // 这里替换为您要跳转的实际页面
+                    // location.href = "index1.html";
+                    alert("验证成功！即将跳转...");
+                }, 1500);
+            }
+        }
+        
+        // 滑块释放事件
+        slider.onchange = function() {
+            // 如果滑块值未达到100，恢复到0并显示错误提示
+            if(this.value < 100 && !isCompleted) {
+                // 添加抖动效果
+                slider.classList.add('shake');
+                
+                // 重置滑块和进度条
+                setTimeout(function() {
+                    slider.value = 0;
+                    progress.style.width = '0%';
+                    slider.classList.remove('shake');
+                    
+                    // 显示错误提示
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                }, 400);
+            }
+        }
+        
+        // 滑块触摸结束事件（针对移动设备）
+        slider.ontouchend = function() {
+            if(this.value < 100 && !isCompleted) {
+                slider.classList.add('shake');
+                
+                setTimeout(function() {
+                    slider.value = 0;
+                    progress.style.width = '0%';
+                    slider.classList.remove('shake');
+                    
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                }, 400);
+            }
+        }
+    </script>
   </body>
 </html>
