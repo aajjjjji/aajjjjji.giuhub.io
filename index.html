@@ -231,16 +231,16 @@
             // 更新进度条
             progress.style.width = this.value + '%';
             
-            // 如果滑块值达到100，验证成功
+            // 滑值到100，验证成功
             if(this.value == 100 && !isCompleted) {
                 isCompleted = true;
                 successMessage.style.display = 'block';
                 errorMessage.style.display = 'none';
                 
-                // 延迟跳转，让用户看到成功消息
+                // 延迟跳转，让78东西看到成功消息
                 setTimeout(function() {
-                    // 这里替换为您要跳转的实际页面
-                    // location.href = "index1.html";
+                    // 这里后面替换网站要跳转的实际页面
+                       location.href = "index1.html";
                     alert("验证成功！即将跳转...");
                 }, 1500);
             }

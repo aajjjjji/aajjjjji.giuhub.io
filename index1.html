@@ -261,6 +261,90 @@
   </div>
   
   <script>
+    // 防破解保护代码
+    (function() {
+        'use strict';
+        
+        // 反调试检测
+        function detectDevTools() {
+            var threshold = 160; // 开发者工具打开时的宽度阈值
+            var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+            var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+            
+            if (widthThreshold || heightThreshold) {
+                document.body.innerHTML = '<div style="text-align:center;padding:50px;font-size:24px;">检测到开发者工具，页面已禁用</div>';
+                throw new Error('DevTools detected');
+            }
+        }
+        
+        // 定期检查
+        setInterval(detectDevTools, 1000);
+        
+        // 页面加载时检查
+        window.addEventListener('load', detectDevTools);
+        window.addEventListener('resize', detectDevTools);
+        
+        // 检测代码篡改
+        var originalScripts = {
+            'displayDateTime': displayDateTime.toString().length,
+            'closePopup': closePopup.toString().length
+        };
+        
+        setInterval(function() {
+            if (displayDateTime.toString().length !== originalScripts.displayDateTime ||
+                closePopup.toString().length !== originalScripts.closePopup) {
+                document.body.innerHTML = '<div style="text-align:center;padding:50px;font-size:24px;">检测到代码篡改，页面已禁用</div>';
+                throw new Error('Code tampering detected');
+            }
+        }, 2000);
+        
+        // 禁用右键菜单和选择
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // 禁用F12和Ctrl+Shift+I
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // 混淆关键函数
+        function getRealUrl(type) {
+            var urls = {
+                'awc': 'http://net.xrvi.top/parser?url=https://www.ilanzou.com/s/Dy4NhTNe',
+                'vac': 'http://net.xrvi.top/parser?url=https://www.ilanzou.com/s/DJrNh3Ac',
+                'qq': 'https://qm.qq.com/q/oEnoMoGcus'
+            };
+            
+            // 添加一些混淆代码
+            var key = String.fromCharCode(97) + String.fromCharCode(119) + String.fromCharCode(99);
+            if (type === key) return urls.awc;
+            
+            return urls[type] || '#';
+        }
+        
+        // 动态更新链接，增加破解难度
+        window.addEventListener('load', function() {
+            var links = document.querySelectorAll('.oval-btn');
+            if (links.length >= 3) {
+                links[0].href = getRealUrl('awc');
+                links[1].href = getRealUrl('vac');
+                links[2].href = getRealUrl('qq');
+            }
+        });
+    })();
+
     function closePopup() {
         document.querySelector('.web_notice').style.display = 'none';
     }
